@@ -1,0 +1,24 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+  db:
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    expose:
+      # Opens port 3306 on the container
+      - 3306
+    volumes:
+      - /home/bruno/dockers/mysql57/conf.d/:/etc/mysql/conf.d
+      - /home/bruno/dockers/mysql57/db:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
