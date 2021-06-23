@@ -1,17 +1,15 @@
-# Docker images for development and tools
--------------------------------
+# Tools and Tips 
 
+- Tools I used for development
+- Methods I used for create protobuf files
 - Backup docker images for all service I used
-
-Image | Description
-------|-----------
-mysql57.yaml | Create a mysql instance for version 5.7 (create a adminer in localhost:8080 to connect into database via php) |
+- and more..
 
 # Topics
 
-- [Mysql](#mysql)
-- [Php 8.0.7](#compiling-php-807-into-asdf)
-- [SQL Server](#sql-server-latest)
+- [Mysql 5.7 docker image](#mysql)
+- [Php 8.0.7 with asdf](#compiling-php-807-into-asdf)
+- [SQL Server docker image](#sql-server-latest)
 - [Stop nodes (pids) Script](#stop-nodes-pids)
 - [Compiling Protobuf Files](#compiling-protobuf-files)
 - [Export MySQl tables to Go struct](#export-mysql-tables-to-go-struct)
@@ -20,26 +18,32 @@ mysql57.yaml | Create a mysql instance for version 5.7 (create a adminer in loca
 # Mysql
 -------------
 - Archive: mysql57.yaml
+
+- Image | Description
+  ------|-----------
+  mysql57.yaml | Create a mysql instance for version 5.7 (create a adminer image in localhost:9898 to connect into mysql database via php) |
+
 - Create the folder: /home/[user]/dockers/mysql57/conf.d/
-    - In conf.d create a text file called ```my.conf``` with:
+    - In ```conf.d``` directory create a text file called ```my.conf``` with:
     - ```shell
       [mysqld] 
       max_connections=200
       ``` 
-- Create the folder: /home/[user]/dockers/mysql57/db
+- Create the folder: ```/home/[user]/dockers/mysql57/db```
 
 # Compiling php 8.0.7 into asdf
 -------------------------------
 
-- Requirments:
+Requirments:
 
+- Install all necessary packages
 ```shell
 sudo apt install -y pkg-config build-essential autoconf bison re2c \
                     libxml2-dev libsqlite3-dev libcurl4 libcurl4-openssl-dev \
-                    libgd-dev libonig-dev libpq-dev libzip-dev \
+                    libgd-dev libonig-dev libpq-dev libzip-dev
 ```
 
-- Then
+- Then install php 8.0.7
 
 ```shell
 asdf plugin-add php
@@ -47,6 +51,7 @@ asdf install php 8.0.7
 ``` 
 
 # SQL server (latest)
+-------------------------------
 
 - Start server with:
 
@@ -55,15 +60,16 @@ docker run --name mssql -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=bfd972@!' -p 1433:143
 ```
 
 # Stop Nodes PIDs
+-------------------------------
 
 - Create a stop_nodes.sh file with:
 
 ```shell
 #!/bin/bash
-# declare all ports are used                                    
+# declare all ports are used
 declare -a portsServices=("9000" "9001" "9002" "9003" "9004" "9005" "9006" "9007")
 
-# get length of an array
+# get length of array
 portArrayLength=${#portsServices[@]}
 
 # Kill all ports if exists
@@ -78,10 +84,12 @@ done
 - Make executable with ```chmod +x stop_node.sh``` 
 
 # Compiling Protobuf Files
+-------------------------------
 
 - See protobuf folder [```readme.md```](./protobuf/README.md) file
 
 # Export MySQl tables to Go struct
+-------------------------------
 
 - Clone the repository: ```https://github.com/xxjwxc/gormt```
 - Compile

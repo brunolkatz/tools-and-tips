@@ -58,13 +58,6 @@ Info
 - More info into:
     - tips: https://medium.com/golang-diary/7-tips-when-working-with-grpc-gateways-swagger-support-afa0c2d671d8
     - ```grpc-gateway``` documentation: https://grpc-ecosystem.github.io/grpc-gateway/
-    
-Environment Variables
----------------------
-
-Name | Description | Accept Values | Default |
------|-----------|---------|--------------|
-GO_PORT | Define the port to serve swagger file server | 9999 | ```8085```
 
 
 Protofile Example
