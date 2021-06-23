@@ -46,7 +46,7 @@ Generating Swagger Documentation (Linux and Ubuntu for WSL 2)
         - ```shell
           file:///$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway
           file:///$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis
-        ```
+          ```
 - Then run: ```swagger_generate.sh```
     - If the error ```protoc-gen-openapiv2/options/annotations.proto: File not found.``` appears,
       see: https://github.com/grpc-ecosystem/grpc-gateway/issues/976
