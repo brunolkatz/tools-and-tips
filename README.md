@@ -1,4 +1,4 @@
-# Docker images for development
+# Docker images for development and tools
 -------------------------------
 
 - Backup docker images for all service I used
@@ -7,10 +7,15 @@ Image | Description
 ------|-----------
 mysql57.yaml | Create a mysql instance for version 5.7 (create a adminer in localhost:8080 to connect into database via php) |
 
-## Indice
+# Topics
 
 - [Mysql](#mysql)
 - [Php 8.0.7](#compiling-php-807-into-asdf)
+- [SQL Server](#sql-server-latest)
+- [Stop nodes (pids) Script](#stop-nodes-pids)
+- [Compiling Protobuf Files](#compiling-protobuf-files)
+- [Export MySQl tables to Go struct](#export-mysql-tables-to-go-struct)
+
 
 # Mysql
 -------------
@@ -40,3 +45,45 @@ sudo apt install -y pkg-config build-essential autoconf bison re2c \
 asdf plugin-add php
 asdf install php 8.0.7
 ``` 
+
+# SQL server (latest)
+
+- Start server with:
+
+```shell
+docker run --name mssql -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=bfd972@!' -p 1433:1433 -d mcr microsoft.com/mssql/server:2017-latest
+```
+
+# Stop Nodes PIDs
+
+- Create a stop_nodes.sh file with:
+
+```shell
+#!/bin/bash
+# declare all ports are used                                    
+declare -a portsServices=("9000" "9001" "9002" "9003" "9004" "9005" "9006" "9007")
+
+# get length of an array
+portArrayLength=${#portsServices[@]}
+
+# Kill all ports if exists
+for (( i=1; i<${portArrayLength}+1; i++ ));
+do
+  echo "Killing port: - "  $i " / " ${portArrayLength} " : " ${portsServices[$i-1]}
+  echo "Killing PID: " $(lsof -t -i:${portsServices[$i-1]})
+  lsof -n -i:${portsServices[$i-1]} | grep LISTEN | tr -s ' ' | cut -f 2 -d ' ' | xargs kill -9
+done
+```
+
+- Make executable with ```chmod +x stop_node.sh``` 
+
+# Compiling Protobuf Files
+
+- See protobuf folder [```readme.md```](./protobuf/README.md) file
+
+# Export MySQl tables to Go struct
+
+- Clone the repository: ```https://github.com/xxjwxc/gormt```
+- Compile
+- Configure ```config.xml``` file to your database
+- Execute ```./gormt```
