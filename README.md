@@ -13,6 +13,7 @@
 - [Stop nodes (pids) Script](#stop-nodes-pids)
 - [Compiling Protobuf Files](#compiling-protobuf-files)
 - [Export MySQl tables to Go struct](#export-mysql-tables-to-go-struct)
+- [Git Credential Manager Core (create a secure way to store git username/passwords (ubuntu))](#git-credential-manager-core)
 
 
 # Mysql
@@ -95,3 +96,18 @@ done
 - Compile
 - Configure ```config.xml``` file to your database
 - Execute ```./gormt```
+
+
+# Git Credential Manager Core
+
+- For remote repositories we don't have access to use ssh key
+
+1. Download the last `.deb` release of credential manager core: [Here](https://github.com/microsoft/Git-Credential-Manager-Core/releases/tag/v2.0.475)
+2. Install package ```sudo dpkg -i <path-to-package>```
+3. Configure the gui (if have (in ubuntu, will open in terminal only))
+  ```
+  export GCM_CREDENTIAL_STORE=secretservice
+  # or
+  git config --global credential.credentialStore secretservice
+  ``` 
+  4. Finish, after the next time you needed to use the username/password, they will store your data encrypted saffely.
