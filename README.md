@@ -14,6 +14,7 @@
 - [Compiling Protobuf Files](#compiling-protobuf-files)
 - [Export MySQl tables to Go struct](#export-mysql-tables-to-go-struct)
 - [Git Credential Manager Core (create a secure way to store git username/passwords (ubuntu))](#git-credential-manager-core)
+- [Curl message and data validation to Bash](#bash-data-validation-and-curl-messages)
 
 
 # Mysql
@@ -36,7 +37,7 @@
 -------------------------------
 
 Requirments:
-
+[
 - Install all necessary packages
 ```shell
 sudo apt install -y pkg-config build-essential autoconf bison re2c \
@@ -111,3 +112,7 @@ done
   git config --global credential.credentialStore secretservice
   ``` 
   4. Finish, after the next time you needed to use the username/password, they will store your data encrypted saffely.
+
+  # Bash data validation and curl messages
+
+  - See [curlToVariable.sh](./curlToVariable.sh) archive in this directory
