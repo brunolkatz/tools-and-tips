@@ -165,3 +165,34 @@ xdebug.mode=debug
 xdebug.client_host=127.0.0.1
 xdebug.client_port=9010
 ```
+
+### Configuring PHPStorm
+1. Open Run -> Edit Configurations...
+2. Create new 'PHP Built-in Web Server'
+3. Set values:
+  ```
+  Host: localhost
+  Port: 8000
+  ``` 
+4. Document root: select Laravel's public catalog/directory
+5. Check Use route script and select server.php in Laravel projects root directory.
+6. Interpreter options: 
+  - Xdebug ^2.*:
+  ```
+  -dxdebug.remote_enable=1 -dxdebug.remote_mode=req -dxdebug.remote_port=9000 -dxdebug.remote_host=127.0.0.1
+  ```
+  - Xdebug ^3.*:
+  ```
+  -dxdebug.mode=debug -dxdebug.start_with_request=trigger -dxdebug.client_port=9003 -dxdebug.client_host=127.0.0.1
+  ``` 
+7. click OK and run.
+
+- In chrome/firefox configure a `page` script for start debug session for PHPStorm:
+  - Start script: 
+    ```javascript
+    javascript:(/** @version 0.5.2 */function() {document.cookie='XDEBUG_SESSION='+'PHPSTORM'+';path=/;';})()
+    ```
+  - Stop script:
+    ```javascript
+    javascript:(/** @version 0.5.2 */function() {document.cookie='XDEBUG_SESSION='+''+';expires=Mon, 05 Jul 2000 00:00:00 GMT;path=/;';})()
+    ```
