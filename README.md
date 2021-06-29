@@ -126,7 +126,7 @@ done
   ------|-----------
   postgresql.yaml | Create a PostgreSQL instance for version (latest) (create a adminer image in localhost:9797 to connect into PostgreSQL database via php) |
 
-- Create the folder: ```/home/[user]/dockers/postgresql```
+- Create the folder: ```/home/$(whoami)/dockers/postgresql```
 - Run docker-compose: ```docker-compose -f postgresql.yaml up```
 - Backup volumes from postgree folder: ```https://stackoverflow.com/a/57773315/9397637```
 
@@ -155,12 +155,12 @@ If it does not, you are using the wrong phpize. Please follow this FAQ entry and
 
 7 - Run: make
 
-8 - Run: cp modules/xdebug.so ```/home/bruno/.asdf/installs/php/8.0.7/lib/php/extensions/no-debug-non-zts-20200930```
+8 - Run: ```cp modules/xdebug.so /home/$(whoami)/.asdf/installs/php/8.0.7/lib/php/extensions/no-debug-non-zts-20200930```
 
-9 - Create ```/home/bruno/.asdf/installs/php/8.0.7/php.ini``` and add the line
+9 - Create ```/home/$(whoami)/.asdf/installs/php/8.0.7/php.ini``` and add the line
 ```
 [xdebug]
-zend_extension = /home/bruno/.asdf/installs/php/8.0.7/lib/php/extensions/no-debug-non-zts-20200930/xdebug.so
+zend_extension = /home/$(whoami)/.asdf/installs/php/8.0.7/lib/php/extensions/no-debug-non-zts-20200930/xdebug.so
 xdebug.mode=debug
 xdebug.client_host=127.0.0.1
 xdebug.client_port=9010
