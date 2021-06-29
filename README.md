@@ -16,6 +16,7 @@
 - [Git Credential Manager Core (create a secure way to store git username/passwords (ubuntu))](#git-credential-manager-core)
 - [Curl message and data validation to Bash](#bash-data-validation-and-curl-messages)
 - [PostgreSql (Latest) docker image](#postgresql)
+- [XDebug PHP 8.0.7](#xdebug-php-807)
 
 # Mysql
 -------------
@@ -128,3 +129,39 @@ done
 - Create the folder: ```/home/[user]/dockers/postgresql```
 - Run docker-compose: ```docker-compose -f postgresql.yaml up```
 - Backup volumes from postgree folder: ```https://stackoverflow.com/a/57773315/9397637```
+
+# XDebug PHP 8.0.7
+------------------
+
+1 - Download xdebug-3.0.4.tgz
+
+2- Install the pre-requisites for compiling PHP extensions: ```apt-get install php-dev autoconf automake```
+
+3 - Unpack the downloaded file with tar -xvzf xdebug-3.0.4.tgz
+
+4 - Run: cd xdebug-3.0.4
+
+5 - Run: phpize (See the FAQ if you don't have phpize).
+
+As part of its output it should show:
+``` 
+Configuring for:
+...
+Zend Module Api No:      20200930
+Zend Extension Api No:   420200930
+If it does not, you are using the wrong phpize. Please follow this FAQ entry and skip the next step.
+```
+6 - Run: ./configure
+
+7 - Run: make
+
+8 - Run: cp modules/xdebug.so ```/home/bruno/.asdf/installs/php/8.0.7/lib/php/extensions/no-debug-non-zts-20200930```
+
+9 - Create ```/home/bruno/.asdf/installs/php/8.0.7/php.ini``` and add the line
+```
+[xdebug]
+zend_extension = /home/bruno/.asdf/installs/php/8.0.7/lib/php/extensions/no-debug-non-zts-20200930/xdebug.so
+xdebug.mode=debug
+xdebug.client_host=127.0.0.1
+xdebug.client_port=9010
+```
