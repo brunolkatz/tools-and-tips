@@ -25,7 +25,7 @@
   ------|-----------
   mysql57.yaml | Create a mysql instance for version 5.7 (create a adminer image in localhost:9898 to connect into mysql database via php) |
 
-- Create the folder: /home/[user]/dockers/mysql57/conf.d/
+- Create the folder: ```/home/[user]/dockers/mysql57/conf.d/```
     - In ```conf.d``` directory create a text file called ```my.conf``` with:
     - ```shell
       [mysqld] 
