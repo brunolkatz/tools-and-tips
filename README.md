@@ -25,7 +25,7 @@
   ------|-----------
   mysql57.yaml | Create a mysql instance for version 5.7 (create a adminer image in localhost:9898 to connect into mysql database via php) |
 
-- Create the folder: /home/[user]/dockers/mysql57/conf.d/
+- Create the folder: ```/home/[user]/dockers/mysql57/conf.d/```
     - In ```conf.d``` directory create a text file called ```my.conf``` with:
     - ```shell
       [mysqld] 
@@ -114,8 +114,8 @@ done
   4. Finish, after the next time you needed to use the username/password, they will store your data encrypted saffely.
 
   # Bash data validation and curl messages
-
-  - See [curlToVariable.sh](./curlToVariable.sh) archive in this directory
+  
+  - See [curlToVariable.sh](./curlToVariableBash.sh) archive in this directory
 
   # Mysql
 -------------
