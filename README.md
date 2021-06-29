@@ -133,7 +133,7 @@ done
 # XDebug PHP 8.0.7
 ------------------
 
-1 - Download xdebug-3.0.4.tgz
+1 - Download [xdebug-3.0.4.tgz](http://xdebug.org/files/xdebug-3.0.4.tgz)
 
 2- Install the pre-requisites for compiling PHP extensions: ```apt-get install php-dev autoconf automake```
 
