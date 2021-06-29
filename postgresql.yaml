@@ -2,18 +2,10 @@
 version: '3'
 
 services:
-  web:
-    build: docker/web
-    ports:
-      - "9797:9797"
-    links:
-      - dbpostgres 
-    volumes:
-      - .:/var/www/html   # I will share my code so I map this path
   dbpostgres:
     image: postgres
     volumes:
-      - /private/var/lib/postgresql:/var/lib/postgresql
+      - /home/bruno/dockers/postgresql:/var/lib/postgresql
     ports:
       - "5432:5432"
     expose:
