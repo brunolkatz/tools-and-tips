@@ -116,3 +116,15 @@ done
   # Bash data validation and curl messages
 
   - See [curlToVariable.sh](./curlToVariable.sh) archive in this directory
+
+  # Mysql
+-------------
+- Archive: postgresql.yaml
+
+- Image | Description
+  ------|-----------
+  postgresql.yaml | Create a PostgreSQL instance for version (latest) (create a adminer image in localhost:9797 to connect into PostgreSQL database via php) |
+
+- Create the folder: ```/home/[user]/dockers/postgresql```
+- Run docker-compose: ```docker-compose -f postgresql.yaml up```
+- Backup volumes from postgree folder: ```https://stackoverflow.com/a/57773315/9397637```
