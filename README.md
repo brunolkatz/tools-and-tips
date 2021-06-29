@@ -16,7 +16,7 @@
 - [Git Credential Manager Core (create a secure way to store git username/passwords (ubuntu))](#git-credential-manager-core)
 - [Curl message and data validation to Bash](#bash-data-validation-and-curl-messages)
 - [PostgreSql (Latest) docker image](#postgresql)
-- [XDebug PHP 8.0.7](#xdebug-php-807)
+- [XDebug PHP 8.0.7 in asdf install](#xdebug-php-807-asdf)
 
 # Mysql
 -------------
@@ -130,7 +130,7 @@ done
 - Run docker-compose: ```docker-compose -f postgresql.yaml up```
 - Backup volumes from postgree folder: ```https://stackoverflow.com/a/57773315/9397637```
 
-# XDebug PHP 8.0.7
+# XDebug PHP 8.0.7 asdf
 ------------------
 
 1 - Download [xdebug-3.0.4.tgz](http://xdebug.org/files/xdebug-3.0.4.tgz)
