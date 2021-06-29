@@ -115,4 +115,4 @@ done
 
   # Bash data validation and curl messages
 
-  - See [curlToVariable.sh](./curlToVariable.sh) archive in this directory
+  - See [curlToVariable.sh](./curlToVariableBash.sh) archive in this directory
