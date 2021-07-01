@@ -109,8 +109,10 @@ done
 3. Configure the gui (if have (in ubuntu, will open in terminal only))
   ```
   export GCM_CREDENTIAL_STORE=secretservice
-  # or
-  git config --global credential.credentialStore secretservice
+  ```
+  or
+  ```
+  git config --global credential.helper store secretservice
   ``` 
   4. Finish, after the next time you needed to use the username/password, they will store your data encrypted saffely.
 
