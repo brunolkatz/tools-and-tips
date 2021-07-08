@@ -160,13 +160,22 @@ If it does not, you are using the wrong phpize. Please follow this FAQ entry and
 8 - Run: ```cp modules/xdebug.so /home/$(whoami)/.asdf/installs/php/8.0.7/lib/php/extensions/no-debug-non-zts-20200930```
 
 9 - Create ```/home/$(whoami)/.asdf/installs/php/8.0.7/php.ini``` and add the line
-```
-[xdebug]
-zend_extension = /home/$(whoami)/.asdf/installs/php/8.0.7/lib/php/extensions/no-debug-non-zts-20200930/xdebug.so
-xdebug.mode=debug
-xdebug.client_host=127.0.0.1
-xdebug.client_port=9010
-```
+    ```
+    [xdebug]
+    zend_extension = /home/$(whoami)/.asdf/installs/php/8.0.7/lib/php/extensions/no-debug-non-zts-20200930/xdebug.so
+    xdebug.mode=debug
+    xdebug.client_host=127.0.0.1
+    xdebug.client_port=9010
+    ```
+
+10 - Test ```php --version``` you need to see a return like this:
+      ```
+      PHP 7.3.6 (cli) (built: Jul  8 2021 13:39:39) ( NTS )
+      Copyright (c) 1997-2018 The PHP Group
+      Zend Engine v3.3.6, Copyright (c) 1998-2018 Zend Technologies
+          with Xdebug v3.0.4, Copyright (c) 2002-2021, by Derick Rethans
+      ```
+      if any error like "Xdebug requires Zend Engine API version 420200930." use the tutorial in: https://xdebug.org/wizard
 
 ### Configuring PHPStorm
 1. Open Run -> Edit Configurations...
